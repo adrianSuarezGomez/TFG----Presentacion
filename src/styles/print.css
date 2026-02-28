@@ -1,0 +1,95 @@
+@media print {
+
+    /* Hide interactive elements */
+    .progress-rail,
+    .presenter-overlay,
+    button,
+    .expandable-trigger,
+    .chaos-mode,
+    nav,
+    .aurora-bg,
+    .noise-overlay::before {
+        display: none !important;
+    }
+
+    /* Reset backgrounds */
+    body,
+    .section {
+        background: white !important;
+        color: black !important;
+    }
+
+    /* Page breaks */
+    .section {
+        page-break-after: always;
+        min-height: auto !important;
+        padding: 2rem !important;
+    }
+
+    .section:last-child {
+        page-break-after: avoid;
+    }
+
+    /* Typography */
+    .title-xl {
+        font-size: 2rem !important;
+        color: black !important;
+    }
+
+    .subtitle,
+    .body-large,
+    p,
+    span,
+    li {
+        color: #333 !important;
+        font-size: 12pt !important;
+    }
+
+    /* Cards */
+    .glass,
+    .glass-strong {
+        background: #f5f5f5 !important;
+        border: 1px solid #ddd !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Links */
+    a {
+        color: #8B5CF6 !important;
+        text-decoration: underline !important;
+    }
+
+    /* Tables */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background: #f0f0f0;
+    }
+
+    /* Show print summary */
+    .print-summary {
+        display: block !important;
+    }
+
+    /* Header for each page */
+    @page {
+        margin: 1.5cm;
+
+        @top-center {
+            content: "Self-Healing E2E - Adrián Suárez Gómez";
+            font-size: 10pt;
+            color: #666;
+        }
+    }
+}

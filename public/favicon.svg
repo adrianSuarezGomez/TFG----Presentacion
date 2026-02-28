@@ -1,0 +1,44 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer hexagon -->
+  <path 
+    d="M16 2L28.5 9.5V22.5L16 30L3.5 22.5V9.5L16 2Z" 
+    stroke="url(#iconGradient)" 
+    stroke-width="2" 
+    fill="none"
+    filter="url(#glow)"
+  />
+  
+  <!-- Inner healing symbol -->
+  <g filter="url(#glow)">
+    <!-- Cross/plus representing healing -->
+    <path 
+      d="M16 10V22M10 16H22" 
+      stroke="url(#iconGradient)" 
+      stroke-width="2.5" 
+      stroke-linecap="round"
+    />
+    
+    <!-- Circular arrow representing automation -->
+    <path 
+      d="M12 12C13.5 10 15.5 9 18 10M20 12C21 14 21 16 20 18M20 20C18 22 15 22 12 20M10 18C9 15 9 13 10 11" 
+      stroke="url(#iconGradient)" 
+      stroke-width="1.5" 
+      stroke-linecap="round"
+      stroke-dasharray="3 2"
+    />
+  </g>
+</svg>
