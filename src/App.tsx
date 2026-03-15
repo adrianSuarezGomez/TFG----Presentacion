@@ -7,13 +7,13 @@ import { Glossary } from './components/Glossary';
 
 // Sections
 import { Hero } from './sections/Hero';
+import { TechContext } from './sections/TechContext';
 import { ThePain } from './sections/ThePain';
 import { TheHealing } from './sections/TheHealing';
 import { Architecture } from './sections/Architecture';
 import { Results } from './sections/Results';
 import { Observability } from './sections/Observability';
 import { LiveDemo } from './sections/LiveDemo';
-import { Questions } from './sections/Questions';
 import { Thanks } from './sections/Thanks';
 
 // Utils
@@ -52,7 +52,7 @@ function App() {
 
     // Hotkeys
     useHotkeys([
-        // Chapter jumps 1-9
+        // Chapter jumps 1-7
         { key: '1', handler: () => scrollToChapter(1) },
         { key: '2', handler: () => scrollToChapter(2) },
         { key: '3', handler: () => scrollToChapter(3) },
@@ -106,8 +106,8 @@ function App() {
                         className="fixed bottom-4 right-4 z-50 glass px-4 py-2 rounded-lg flex items-center gap-2"
                     >
                         <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                        <span className="text-sm text-gray-300">Chaos Mode</span>
-                        <span className="text-xs text-gray-500">(H para salir)</span>
+                        <span className="text-sm text-muted-light">Chaos Mode</span>
+                        <span className="text-xs text-muted">(H para salir)</span>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -117,7 +117,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2, duration: 0.5 }}
-                className="fixed bottom-4 left-4 z-40 hidden lg:block text-xs text-gray-600"
+                className="fixed bottom-4 left-4 z-40 hidden lg:block text-xs text-muted-dark"
             >
                 <span>1-9: Capítulos</span>
                 <span className="mx-2">|</span>
@@ -127,18 +127,18 @@ function App() {
             {/* Main content */}
             <main>
                 <Hero />
+                <TechContext />
                 <ThePain />
                 <TheHealing />
                 <Architecture />
                 <Results />
                 <Observability />
                 <LiveDemo />
-                <Questions />
                 <Thanks />
             </main>
 
             {/* Footer */}
-            <footer className="py-8 text-center text-sm text-gray-600 border-t border-gray-800">
+            <footer className="py-8 text-center text-sm text-muted border-t border-white/5">
                 <p>
                     {config.author} • {config.shortTitle} • TFG 2026
                 </p>

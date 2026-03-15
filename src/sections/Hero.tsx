@@ -18,77 +18,79 @@ export const Hero = () => {
             id="hero"
             className="section min-h-screen relative overflow-hidden flex items-center justify-center"
         >
-            {/* Aurora background */}
+            {/* Aurora background — high intensity */}
             <Aurora intensity="high" />
+
+            {/* Subtle grid pattern */}
+            <div className="absolute inset-0 bg-grid opacity-30" />
 
             {/* Content */}
             <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
                 {/* Context badge */}
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8"
+                    initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="inline-flex items-center gap-2.5 badge mb-12"
                 >
-                    <GlyphSVG seed="context-badge" size={16} color="#A78BFA" />
-                    <span className="text-sm text-gray-400">{config.context}</span>
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="tracking-widest">{config.context}</span>
                 </motion.div>
 
-                {/* Main title */}
+                {/* Main title — DRAMATIC gradient text */}
                 <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="title-xl text-white mb-6"
+                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="title-xl mb-8"
                 >
-                    <span className="text-glow">Tests break.</span>
-                    <br />
-                    <span className="text-accent-light">We heal them.</span>
+                    <span className="block text-white text-glow">Tests break.</span>
+                    <span className="block gradient-text" style={{ fontSize: '110%' }}>We heal them.</span>
                 </motion.h1>
 
                 {/* Subtitle */}
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="subtitle text-gray-300 mb-8 max-w-2xl mx-auto"
+                    transition={{ duration: 0.8, delay: 0.7, ease: [0.33, 1, 0.68, 1] }}
+                    className="subtitle mb-10 max-w-2xl mx-auto"
                 >
                     {config.title}
                 </motion.p>
 
-                {/* Author signature */}
+                {/* Author signature with gradient lines */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    className="flex items-center justify-center gap-3 mb-12"
+                    initial={{ opacity: 0, scaleX: 0 }}
+                    animate={{ opacity: 1, scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 0.9, ease: [0.33, 1, 0.68, 1] }}
+                    className="flex items-center justify-center gap-5 mb-14"
                 >
-                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-                    <span className="text-lg text-accent-light font-medium">
+                    <div className="w-20 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+                    <span className="text-lg gradient-text-warm font-display font-semibold tracking-wide">
                         {config.author}
                     </span>
-                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+                    <div className="w-20 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
                 </motion.div>
 
-                {/* CTA Button */}
+                {/* CTA Button — with shimmer border */}
                 <motion.button
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.8, delay: 1.1, ease: [0.33, 1, 0.68, 1] }}
                     onClick={scrollToHealing}
-                    className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-accent/10 border border-accent/30 hover:border-accent/60 hover:bg-accent/20 transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-surface-elevated/80 backdrop-blur-xl border border-accent/20 transition-all duration-500 hover:border-accent/40 hover:shadow-[0_0_40px_-10px_rgba(134,239,172,0.3)]"
+                    whileHover={{ scale: 1.04, y: -3 }}
+                    whileTap={{ scale: 0.97 }}
                 >
-                    <span className="text-lg font-medium text-white">Ver el self-healing</span>
-                    {/* Arrow icon custom */}
+                    <span className="relative z-10 text-lg font-display font-semibold text-white">Ver el self-healing</span>
+                    {/* Animated arrow */}
                     <motion.svg
                         width="20"
                         height="20"
                         viewBox="0 0 20 20"
                         fill="none"
-                        className="text-accent"
-                        animate={{ y: [0, 4, 0] }}
+                        className="text-accent relative z-10"
+                        animate={{ y: [0, 5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
                     >
                         <path
@@ -99,34 +101,43 @@ export const Hero = () => {
                             strokeLinejoin="round"
                         />
                     </motion.svg>
-
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-accent/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </motion.button>
 
-                {/* Decorative glyphs */}
-                <div className="absolute top-1/4 left-8 opacity-20">
-                    <GlyphSVG seed="hero-deco-1" size={80} color="#8B5CF6" />
-                </div>
-                <div className="absolute bottom-1/4 right-8 opacity-20">
-                    <GlyphSVG seed="hero-deco-2" size={60} color="#A78BFA" />
-                </div>
-                <div className="absolute top-1/2 left-1/4 opacity-10">
-                    <GlyphSVG seed="hero-deco-3" size={100} color="#7C3AED" />
-                </div>
+                {/* Decorative glyphs — more visible */}
+                <motion.div
+                    className="absolute top-1/4 left-8 opacity-20"
+                    animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                    <GlyphSVG seed="hero-deco-1" size={90} color="#86EFAC" />
+                </motion.div>
+                <motion.div
+                    className="absolute bottom-1/4 right-8 opacity-20"
+                    animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
+                    transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+                >
+                    <GlyphSVG seed="hero-deco-2" size={70} color="#22D3EE" />
+                </motion.div>
+                <motion.div
+                    className="absolute top-1/3 right-1/4 opacity-10"
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+                >
+                    <GlyphSVG seed="hero-deco-3" size={120} color="#86EFAC" />
+                </motion.div>
             </div>
 
             {/* Scroll indicator */}
             <motion.div
                 className="absolute bottom-8 left-1/2 -translate-x-1/2"
                 animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-                <div className="w-6 h-10 rounded-full border-2 border-gray-600 flex items-start justify-center p-2">
+                <div className="w-7 h-11 rounded-full border-2 border-accent/30 flex items-start justify-center p-2">
                     <motion.div
-                        className="w-1.5 h-2 rounded-full bg-accent"
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="w-1.5 h-2.5 rounded-full bg-accent"
+                        animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                     />
                 </div>
             </motion.div>

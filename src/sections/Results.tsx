@@ -5,7 +5,7 @@ import { GlyphSVG } from '../utils/glyphs';
 import { config } from '../data/config';
 import { staggerContainer, staggerItem } from '../utils/easing';
 
-// SVG Bar Chart component - más compacto
+// SVG Bar Chart component
 const BarChart = ({
     data,
     maxValue,
@@ -31,7 +31,7 @@ const BarChart = ({
                 y1={baselineY}
                 x2={totalWidth}
                 y2={baselineY}
-                stroke="#374151"
+                stroke="#27272A"
                 strokeWidth="1"
             />
 
@@ -50,13 +50,13 @@ const BarChart = ({
                             width={barWidth}
                             height={barHeight}
                             fill={item.color}
-                            rx="6"
+                            rx="8"
                             initial={{ height: 0, y: baselineY }}
                             animate={{ height: barHeight, y: barY }}
-                            transition={{ duration: 0.8, delay: i * 0.2 }}
+                            transition={{ duration: 1, delay: i * 0.3, ease: [0.16, 1, 0.3, 1] }}
                         />
 
-                        {/* Value label - above bar */}
+                        {/* Value label */}
                         <text
                             x={x + barWidth / 2}
                             y={barY - 8}
@@ -64,18 +64,20 @@ const BarChart = ({
                             fill="#fff"
                             fontSize="18"
                             fontWeight="bold"
+                            fontFamily="Outfit, system-ui, sans-serif"
                         >
                             {item.value}%
                         </text>
 
-                        {/* X-axis label - below baseline */}
+                        {/* X-axis label */}
                         <text
                             x={x + barWidth / 2}
                             y={baselineY + 25}
                             textAnchor="middle"
-                            fill="#fff"
+                            fill="#A1A1AA"
                             fontSize="13"
-                            fontWeight="600"
+                            fontWeight="500"
+                            fontFamily="Inter, system-ui, sans-serif"
                         >
                             {item.label}
                         </text>
@@ -86,7 +88,7 @@ const BarChart = ({
     );
 };
 
-// ROI Dial component - más compacto
+// ROI Dial component
 const ROIDial = ({ percentage }: { percentage: number }) => {
     const radius = 55;
     const circumference = 2 * Math.PI * radius;
@@ -101,7 +103,7 @@ const ROIDial = ({ percentage }: { percentage: number }) => {
                     cy="70"
                     r={radius}
                     fill="none"
-                    stroke="#1F2937"
+                    stroke="#18181B"
                     strokeWidth="10"
                 />
 
@@ -117,14 +119,14 @@ const ROIDial = ({ percentage }: { percentage: number }) => {
                     strokeDasharray={circumference}
                     initial={{ strokeDashoffset: circumference }}
                     animate={{ strokeDashoffset }}
-                    transition={{ duration: 1.5, ease: 'easeOut' }}
+                    transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
                 />
 
                 {/* Gradient definition */}
                 <defs>
                     <linearGradient id="roiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8B5CF6" />
-                        <stop offset="100%" stopColor="#22C55E" />
+                        <stop offset="0%" stopColor="#86EFAC" />
+                        <stop offset="100%" stopColor="#4ADE80" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -132,20 +134,20 @@ const ROIDial = ({ percentage }: { percentage: number }) => {
             {/* Center text */}
             <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <motion.span
-                    className="text-3xl font-bold text-white"
+                    className="font-display text-3xl font-bold text-white"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                 >
                     {percentage}%
                 </motion.span>
-                <span className="text-xs text-gray-400">ROI Ahorro</span>
+                <span className="text-xs text-muted">ROI Ahorro</span>
             </div>
         </div>
     );
 };
 
-// Stability Bar component - más compacto
+// Stability Bar component
 const StabilityBar = ({
     before,
     after,
@@ -157,30 +159,30 @@ const StabilityBar = ({
         <div className="space-y-3">
             <div>
                 <div className="flex justify-between text-xs mb-1">
-                    <span className="text-gray-400">Sin self-healing</span>
-                    <span className="text-red-400">{before}% estabilidad</span>
+                    <span className="text-muted-light">Sin self-healing</span>
+                    <span className="text-red-400">{Number(before.toFixed(1))}% estabilidad</span>
                 </div>
-                <div className="h-2 bg-surface rounded-full overflow-hidden">
+                <div className="h-2 bg-surface rounded-full overflow-hidden border border-white/5">
                     <motion.div
                         className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: `${before}%` }}
-                        transition={{ duration: 1 }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     />
                 </div>
             </div>
 
             <div>
                 <div className="flex justify-between text-xs mb-1">
-                    <span className="text-gray-400">Con self-healing</span>
-                    <span className="text-green-400">{after}% estabilidad</span>
+                    <span className="text-muted-light">Con self-healing</span>
+                    <span className="text-accent">{Number(after.toFixed(1))}% estabilidad</span>
                 </div>
-                <div className="h-2 bg-surface rounded-full overflow-hidden">
+                <div className="h-2 bg-surface rounded-full overflow-hidden border border-white/5">
                     <motion.div
-                        className="h-full bg-gradient-to-r from-accent to-green-400 rounded-full"
+                        className="h-full bg-gradient-to-r from-accent-dark to-accent rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: `${after}%` }}
-                        transition={{ duration: 1, delay: 0.3 }}
+                        transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     />
                 </div>
             </div>
@@ -193,15 +195,15 @@ export const Results = () => {
 
     const chartData = useMemo(() => [
         { label: 'Sin healing', value: results.withoutHealing.failRate, color: '#EF4444' },
-        { label: 'Con healing', value: results.withHealing.finalFailRate, color: '#22C55E' },
+        { label: 'Con healing', value: results.withHealing.finalFailRate, color: '#86EFAC' },
     ], [results]);
 
     return (
         <section id="results" className="section relative py-12">
             <div className="absolute inset-0 bg-grid opacity-20" />
 
-            <div className="relative z-10 max-w-6xl mx-auto">
-                {/* Header - más compacto */}
+            <div className="relative z-10 w-full mx-auto">
+                {/* Header */}
                 <motion.div
                     variants={staggerContainer}
                     initial="initial"
@@ -210,22 +212,23 @@ export const Results = () => {
                     className="mb-6"
                 >
                     <motion.div variants={staggerItem} className="flex items-center gap-3 mb-2">
-                        <GlyphSVG seed="results-section" size={28} color="#8B5CF6" />
-                        <span className="text-sm text-accent uppercase tracking-wider font-medium">
-                            Capítulo 5
+                        <GlyphSVG seed="results-section" size={28} color="#86EFAC" />
+                        <span className="chapter-label">
+                            Capítulo 6
                         </span>
                     </motion.div>
 
-                    <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-bold text-white mb-2">
-                        Resultados reales
+                    <motion.h2 variants={staggerItem} className="font-display text-4xl md:text-5xl font-bold mb-2">
+                        <span className="text-white">Resultados </span>
+                        <span className="gradient-text">reales</span>
                     </motion.h2>
 
-                    <motion.p variants={staggerItem} className="text-lg text-gray-400 max-w-2xl">
+                    <motion.p variants={staggerItem} className="subtitle max-w-2xl">
                         Datos de experimento con {results.totalTests} tests bajo mutaciones de DOM controladas.
                     </motion.p>
                 </motion.div>
 
-                {/* Stats grid - más compacto */}
+                {/* Stats grid */}
                 <div className="grid grid-cols-3 gap-3 mb-6">
                     <StatCard
                         value={results.totalTests}
@@ -244,29 +247,29 @@ export const Results = () => {
                     />
                 </div>
 
-                {/* Main comparison - más compacto */}
+                {/* Main comparison */}
                 <div className="grid lg:grid-cols-2 gap-4">
                     {/* Bar chart comparison */}
                     <GlassCard className="p-4">
-                        <h3 className="text-lg font-semibold text-white mb-4 text-center">
+                        <h3 className="font-display text-lg font-semibold text-white mb-4 text-center">
                             Tasa de Fallo
                         </h3>
-                        <BarChart data={chartData} maxValue={50} height={140} />
-                        <p className="text-xs text-gray-500 text-center mt-2">
+                        <BarChart data={chartData} maxValue={100} height={140} />
+                        <p className="text-xs text-muted text-center mt-2">
                             Reducción del {(results.withoutHealing.failRate - results.withHealing.finalFailRate).toFixed(1)}% en fallos
                         </p>
                     </GlassCard>
 
                     {/* ROI and stability */}
                     <GlassCard className="p-4">
-                        <h3 className="text-lg font-semibold text-white mb-4 text-center">
+                        <h3 className="font-display text-lg font-semibold text-white mb-4 text-center">
                             Retorno de Inversión
                         </h3>
                         <ROIDial percentage={results.roiPercentage} />
                         <div className="mt-4">
                             <StabilityBar
-                                before={100 - results.withoutHealing.failRate}
-                                after={100 - results.withHealing.finalFailRate}
+                                before={Number((100 - results.withoutHealing.failRate).toFixed(1))}
+                                after={Number((100 - results.withHealing.finalFailRate).toFixed(1))}
                             />
                         </div>
                     </GlassCard>
