@@ -49,29 +49,39 @@ export const useHotkey = (key: string, handler: KeyHandler, options?: Omit<Hotke
     useHotkeys([{ key, handler, ...options }]);
 };
 
-// Utilidad para scroll a sección
-export const scrollToSection = (sectionId: string) => {
+// Utilidad para scroll a sección con optional offset
+export const scrollToSection = (sectionId: string, offset = 0) => {
     const element = document.getElementById(sectionId);
     if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+            top: elementTop + offset,
+            behavior: 'smooth',
+        });
     }
 };
 
 // Mapeo de capítulo ID a sección
 export const chapterSections = [
     'hero',
+    'tech-context',
     'the-pain',
     'the-healing',
     'architecture',
     'results',
     'observability',
     'live-demo',
-    'questions',
     'thanks',
 ] as const;
 
+// Per-chapter scroll offsets (positive = scroll further down)
+const chapterOffsets: Record<number, number> = {
+    7: 80, // Observability: scroll 80px further down to center content
+};
+
 export const scrollToChapter = (chapterNumber: number) => {
     if (chapterNumber >= 1 && chapterNumber <= 9) {
-        scrollToSection(chapterSections[chapterNumber - 1]);
+        const offset = chapterOffsets[chapterNumber] || 0;
+        scrollToSection(chapterSections[chapterNumber - 1], offset);
     }
 };

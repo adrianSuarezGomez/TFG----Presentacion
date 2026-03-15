@@ -56,7 +56,7 @@ export const ProgressRail = ({ currentSection, onNavigate }: ProgressRailProps) 
                         {/* Línea conectora */}
                         {index < chapters.length - 1 && (
                             <div
-                                className={`absolute top-full left-1/2 -translate-x-1/2 w-px h-2 transition-colors duration-300 ${currentSection > index ? 'bg-accent' : 'bg-gray-700'
+                                className={`absolute top-full left-1/2 -translate-x-1/2 w-px h-2 transition-colors duration-300 ${currentSection > index ? 'bg-accent' : 'bg-white/10'
                                     }`}
                             />
                         )}
@@ -67,8 +67,8 @@ export const ProgressRail = ({ currentSection, onNavigate }: ProgressRailProps) 
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             className={`relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
-                                    ? 'bg-accent/20 border-2 border-accent'
-                                    : 'bg-surface-elevated border border-gray-700 hover:border-accent/50'
+                                ? 'bg-accent/15 border-2 border-accent shadow-glow-sm'
+                                : 'bg-surface-elevated border border-white/10 hover:border-accent/30'
                                 }`}
                             aria-label={`Capítulo ${chapter.id}: ${chapter.title}`}
                             aria-current={isActive ? 'true' : 'false'}
@@ -77,13 +77,13 @@ export const ProgressRail = ({ currentSection, onNavigate }: ProgressRailProps) 
                             <GlyphSVG
                                 seed={`chapter-${chapter.id}`}
                                 size={20}
-                                color={isActive ? '#A78BFA' : '#6B7280'}
+                                color={isActive ? '#86EFAC' : '#52525B'}
                                 className="transition-opacity duration-300"
                             />
 
                             {/* Número de capítulo (shortcut) */}
                             <span
-                                className={`absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full text-[10px] font-bold flex items-center justify-center transition-colors ${isActive ? 'bg-accent text-white' : 'bg-gray-700 text-gray-400'
+                                className={`absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full text-[10px] font-bold flex items-center justify-center transition-colors ${isActive ? 'bg-accent text-surface' : 'bg-surface-elevated text-muted'
                                     }`}
                             >
                                 {chapter.id}
@@ -100,9 +100,9 @@ export const ProgressRail = ({ currentSection, onNavigate }: ProgressRailProps) 
                                     transition={{ duration: 0.15 }}
                                     className="absolute right-14 whitespace-nowrap"
                                 >
-                                    <div className="glass-strong px-3 py-2 rounded-lg text-sm">
+                                    <div className="glass-strong px-3 py-2 rounded-xl text-sm">
                                         <span className="text-accent font-medium">{chapter.id}.</span>{' '}
-                                        <span className="text-gray-200">{chapter.title.slice(0, 30)}</span>
+                                        <span className="text-muted-light">{chapter.title.slice(0, 30)}</span>
                                     </div>
                                 </motion.div>
                             )}

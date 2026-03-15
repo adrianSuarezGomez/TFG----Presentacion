@@ -2,36 +2,42 @@
 export const config = {
     // Datos del autor
     author: "Adrián Suárez Gómez",
-    tutor: "Nombre del Tutor", // Cambiar por el nombre real
+    tutor: "Román Armijo Bidón", // Cambiar por el nombre real
     title: "Self-Healing de locators en E2E con Playwright + IA local",
     shortTitle: "Self-Healing E2E",
     context: "Defensa TFG",
 
-    // Colores (violeta neón por defecto)
+    // Colores (Estética Cyber-Dashboard: Verde Neón por éxito/principal)
     accent: {
-        primary: "#8B5CF6",
-        light: "#A78BFA",
-        dark: "#7C3AED",
-        glow: "rgba(139, 92, 246, 0.4)",
+        primary: "#22C55E", // Tailwind green-500
+        light: "#4ADE80",   // Tailwind green-400
+        dark: "#16A34A",    // Tailwind green-600
+        glow: "rgba(34, 197, 94, 0.4)",
     },
 
-    // Datos de resultados EXACTOS
+    // Status colors
+    status: {
+        error: "#EF4444", // Neon Red
+        warning: "#EAB308", // Yellow
+    },
+
+    // Datos de resultados EXACTOS (Cyber-Dashboard reqs)
     results: {
-        totalTests: 24,
+        totalTests: 97, // Total tests in the suite
         withoutHealing: {
-            failed: 11,
-            failRate: 45.8,
-            correctionTime: 165, // minutos
+            failed: 89,
+            failRate: 91.8, // 89/97 as requested
+            correctionTime: 89 * 15, // 15 minutos por test (1335 mins total)
         },
         withHealing: {
-            recovered: 9,
-            finalFailed: 2,
-            recoveryRate: 81.8,
-            finalFailRate: 8.3,
-            correctionTime: 30, // minutos
+            recovered: 89,
+            finalFailed: 0,
+            recoveryRate: 100, // 89 recovered out of 89 affected
+            finalFailRate: 0, // 0 final failures
+            correctionTime: 30, // Tiempo extra computacional
         },
-        timeSaved: 135, // minutos
-        roiPercentage: 82, // ahorro estimado
+        timeSaved: (89 * 15) - 30, // 1305 mins saved
+        roiPercentage: 100, // 100% success recovery rate
     },
 
     // Shortcuts

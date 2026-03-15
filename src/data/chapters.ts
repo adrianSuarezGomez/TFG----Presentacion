@@ -14,45 +14,45 @@ export const chapters: Chapter[] = [
     },
     {
         id: 2,
+        slug: "tech-context",
+        title: "El Ecosistema del Testing Automatizado",
+        subtitle: "Contexto y fundamentos técnicos: pruebas E2E, localizadores y CI.",
+    },
+    {
+        id: 3,
         slug: "the-pain",
         title: "El dolor real",
         subtitle: "Tests que rompen por cambios mínimos en la UI. Falsos negativos, pipelines en rojo, tiempo perdido.",
     },
     {
-        id: 3,
+        id: 4,
         slug: "the-healing",
         title: "La reparación automática",
         subtitle: "Cuando un locator falla, el sistema intenta repararlo usando un LLM local.",
     },
     {
-        id: 4,
+        id: 5,
         slug: "architecture",
         title: "Arquitectura del sistema",
         subtitle: "Componentes modulares integrados en el flujo de Playwright.",
     },
     {
-        id: 5,
+        id: 6,
         slug: "results",
         title: "Resultados reales",
         subtitle: "Datos de experimento con 24 tests bajo mutaciones de DOM controladas.",
     },
     {
-        id: 6,
+        id: 7,
         slug: "observability",
         title: "Observabilidad y futuro",
         subtitle: "El sistema registra cada reparación para análisis y mejora continua.",
     },
     {
-        id: 7,
+        id: 8,
         slug: "live-demo",
         title: "Live Demo",
         subtitle: "Demostración en vivo del sistema de self-healing.",
-    },
-    {
-        id: 8,
-        slug: "questions",
-        title: "¿Preguntas?",
-        subtitle: "Turno de preguntas sobre el TFG.",
     },
     {
         id: 9,
@@ -65,4 +65,3 @@ export const chapters: Chapter[] = [
 export const getChapterById = (id: number): Chapter | undefined => {
     return chapters.find((c) => c.id === id);
 };
-

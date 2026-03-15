@@ -96,10 +96,10 @@ export const Glossary = ({ isOpen, onClose }: GlossaryProps) => {
                         <GlassCard variant="strong" className="p-6">
                             {/* Header */}
                             <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-2xl font-bold text-white">Glosario</h2>
+                                <h2 className="font-display text-2xl font-bold text-white">Glosario</h2>
                                 <button
                                     onClick={onClose}
-                                    className="w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
+                                    className="w-8 h-8 rounded-lg bg-surface-elevated hover:bg-surface flex items-center justify-center transition-colors"
                                     aria-label="Cerrar glosario"
                                 >
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -120,7 +120,7 @@ export const Glossary = ({ isOpen, onClose }: GlossaryProps) => {
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                     placeholder="Buscar término..."
-                                    className="w-full bg-surface border border-gray-700 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent"
+                                    className="w-full bg-surface border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-muted focus:outline-none focus:border-accent transition-colors"
                                 />
                             </div>
 
@@ -132,27 +132,27 @@ export const Glossary = ({ isOpen, onClose }: GlossaryProps) => {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: index * 0.03 }}
-                                        className="p-4 bg-surface rounded-lg"
+                                        className="p-4 bg-surface rounded-xl border border-white/5"
                                     >
                                         <dt className="text-accent-light font-semibold text-lg mb-1">
                                             {item.term}
                                         </dt>
-                                        <dd className="text-gray-300 text-sm leading-relaxed">
+                                        <dd className="text-muted-light text-sm leading-relaxed">
                                             {item.definition}
                                         </dd>
                                     </motion.div>
                                 ))}
 
                                 {filteredTerms.length === 0 && (
-                                    <p className="text-gray-500 text-center py-8">
+                                    <p className="text-muted text-center py-8">
                                         No se encontraron términos.
                                     </p>
                                 )}
                             </div>
 
                             {/* Footer */}
-                            <div className="mt-4 pt-4 border-t border-gray-700 text-center">
-                                <span className="text-xs text-gray-500">
+                            <div className="mt-4 pt-4 border-t border-white/5 text-center">
+                                <span className="text-xs text-muted">
                                     {glossaryTerms.length} términos • Pulsa Esc para cerrar
                                 </span>
                             </div>

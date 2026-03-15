@@ -13,7 +13,7 @@ type GlyphType = 'hexagon' | 'circuit' | 'radial' | 'orbital' | 'pulse';
 // Generar path SVG para un glyph basado en seed
 export const generateGlyph = (
     seed: string,
-    config: GlyphConfig = { size: 48, strokeWidth: 1.5, color: '#8B5CF6' }
+    config: GlyphConfig = { size: 48, strokeWidth: 1.5, color: '#22C55E' }
 ): string => {
     const rng = createSeededRandom(seed);
     const { size, strokeWidth, color } = config;
@@ -222,7 +222,7 @@ function generatePulseGlyph(
 export const GlyphSVG = ({
     seed,
     size = 48,
-    color = '#8B5CF6',
+    color = '#22C55E',
     className = '',
 }: {
     seed: string;

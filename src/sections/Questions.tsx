@@ -15,34 +15,34 @@ export const Questions = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <motion.div
                             animate={{ scale: [1, 1.05, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
+                            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                         >
-                            <GlyphSVG seed="questions-glyph" size={100} color="#8B5CF6" />
+                            <GlyphSVG seed="questions-glyph" size={100} color="#86EFAC" />
                         </motion.div>
                     </motion.div>
 
                     {/* Main heading */}
                     <motion.h1
-                        className="text-5xl md:text-7xl font-bold text-white"
+                        className="font-display text-5xl md:text-7xl font-bold text-white"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     >
                         ¿Preguntas?
                     </motion.h1>
 
                     {/* Subtitle */}
                     <motion.p
-                        className="text-2xl md:text-3xl text-gray-400"
+                        className="text-2xl md:text-3xl text-muted-light font-light"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     >
                         Turno de preguntas sobre el TFG
                     </motion.p>
@@ -53,14 +53,14 @@ export const Questions = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <div className="glass p-8 rounded-2xl border border-accent/30">
-                            <GlyphSVG seed="author-avatar" size={60} color="#A78BFA" className="mx-auto mb-4" />
-                            <p className="text-2xl font-semibold text-white mb-2">
+                        <div className="glass-strong p-8 rounded-2xl border-accent/20">
+                            <GlyphSVG seed="author-avatar" size={60} color="#86EFAC" className="mx-auto mb-4" />
+                            <p className="font-display text-2xl font-semibold text-white mb-2">
                                 {config.author}
                             </p>
-                            <p className="text-accent-light">
+                            <p className="text-accent">
                                 Autor del TFG
                             </p>
                         </div>
@@ -68,11 +68,11 @@ export const Questions = () => {
 
                     {/* Divider */}
                     <motion.div
-                        className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent mx-auto my-8"
+                        className="w-32 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mx-auto my-8"
                         initial={{ opacity: 0, scaleX: 0 }}
                         whileInView={{ opacity: 1, scaleX: 1 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
                     />
 
                     {/* End presentation button */}
@@ -80,11 +80,11 @@ export const Questions = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
                     >
                         <motion.button
                             onClick={() => document.getElementById('thanks')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="px-8 py-4 rounded-xl font-medium text-lg bg-accent hover:bg-accent-dark text-white transition-all flex items-center gap-3 mx-auto"
+                            className="px-8 py-4 rounded-xl font-display font-medium text-lg bg-accent/90 hover:bg-accent text-surface transition-all duration-300 flex items-center gap-3 mx-auto shadow-glow-sm hover:shadow-glow-md"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -106,4 +106,3 @@ export const Questions = () => {
         </section>
     );
 };
-
