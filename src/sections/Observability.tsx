@@ -59,8 +59,8 @@ export const Observability = () => {
                                         <div className="text-xs text-muted uppercase mt-1 tracking-widest">Tests recuperados</div>
                                     </div>
                                     <div className="bg-accent/8 p-4 rounded-xl border border-accent/15 flex-1 max-w-[180px]">
-                                        <div className="font-display text-3xl font-bold text-accent-light">1.335</div>
-                                        <div className="text-xs text-muted uppercase mt-1 tracking-widest">Minutos ahorrados</div>
+                                        <div className="font-display text-3xl font-bold text-accent-light">22,25</div>
+                                        <div className="text-xs text-muted uppercase mt-1 tracking-widest">Horas ahorradas</div>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@ export const Observability = () => {
 
                 {/* Print summary (hidden, shown only in print) */}
                 <div className="print-summary hidden">
-                    <h1>Self-Healing E2E con Playwright + IA Local</h1>
+                    <h1>Auto-Reparación (Self-Healing) de locators en pruebas E2E</h1>
                     <p>Autor: Adrián Suárez Gómez</p>
                     <h2>Resultados Clave</h2>
                     <ul>

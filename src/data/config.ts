@@ -3,7 +3,7 @@ export const config = {
     // Datos del autor
     author: "Adrián Suárez Gómez",
     tutor: "Román Armijo Bidón", // Cambiar por el nombre real
-    title: "Self-Healing de locators en E2E con Playwright + IA local",
+    title: "Auto-Reparación (Self-Healing) de locators en pruebas E2E",
     shortTitle: "Self-Healing E2E",
     context: "Defensa TFG",
 

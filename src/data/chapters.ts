@@ -10,7 +10,7 @@ export const chapters: Chapter[] = [
         id: 1,
         slug: "hero",
         title: "Tests break. We heal them.",
-        subtitle: "Self-Healing de locators en E2E con Playwright + IA local.",
+        subtitle: "Auto-Reparación (Self-Healing) de locators en pruebas E2E.",
     },
     {
         id: 2,
