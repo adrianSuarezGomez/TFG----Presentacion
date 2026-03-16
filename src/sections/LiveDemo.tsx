@@ -55,7 +55,7 @@ export const LiveDemo = () => {
                         <video
                             controls
                             className="w-full aspect-video outline-none relative z-10 rounded-xl"
-                            preload="metadata"
+                            preload="auto"
                         >
                             <source src="/videos/Auto-Reparación_de_Locators.mp4" type="video/mp4" />
                             Tu navegador no soporta el formato de vídeo.
